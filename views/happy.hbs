@@ -3,21 +3,30 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width", initial-scale=1>
-  <meta name="author" content="">
-  <meta name="description" content=" ">
-  <meta name="keywords" content="">
-  <title>Canseco - CS 3 </title>
+  <meta name="viewport" content="width=device-width", initial-scale="1">
+  <meta name="author" content="Rajveer Miguel S. Madrid">
+  <meta name="description" content="Displays data from collected birthday form and sings a song to the celebrant">
+  <meta name="keywords" content="CS3, 4th Graded, PSHS-MC, Week 3">
+  <title>Madrid - CS3 Happy Birthday</title>
   <!-- using the w3.css framework to show how predefined css classes can be used inside an html document.  -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <!-- local css property definitions to further enhance the page -->
   <link href="style.css" rel="stylesheet" type="text/css" />
 
-  <link rel="icon" type="image/x-icon" href="">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <!--- classes that starts with w3 are defined inside w3.css -->
 <body class="w3-container w3-auto">
+  <audio hidden autoplay id="happy" repeat>
+    <source src="happy.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+    <script>
+      let happy = document.getElementById("happy");
+      happy.volume = 0.1;
+      happy.loop = true;
+    </script>
+  </audio>
 
   <!-- do define the navigation bar using classes to define a button styled as a link
       take note: just a demonsration on how it can be used. Responsive to the size of the viewport
@@ -29,17 +38,40 @@
 
 
   <header class="w3-container" id="header" > 
-    <h1>Roy Canseco - III-K - Jan 2025</h1>
+    <h1>Rajveer Madrid - 9 Mg - March 2025</h1>
     <h2> Birthday </h2>
   </header>
 
   <section class="w3-container" id="input"> 
     <h2>Output</h2>
     <!-- Place your output here -->
+    Nickname: {{nickname}} <br/>
+    Gender: {{gender}} <br/>
+    Number Invited: {{number}} <br/><br/>
+    {{#each list}}
+      Name: {{@key}} <br/>
+      Going?: {{this}} <br/>
+    {{/each}} <br/>
+    Number Going: {{singersNum}} <br/>
+
+    <h2>Song</h2>
+    {{#each song}}
+      {{singer}} : {{lyric}} <br/>
+    {{/each}}
   </section>
 
   <footer class="w3-container ">
-    <p> &copy; 2024 CS3 Teachers </p>
+    <p> &copy; 2025 Rajveer Madrid - 9 Mg </p>
+    <p>Credits and HUGE thanks to:</p>
+    <ul>
+      <li>Mg02 Miggy Alvarado</li>
+      <li>Mg25 Christian Solidum</li>
+    </ul>
+    <p>For providing assistance in making the form submission work after 3 days! And to:</p>
+    <ul>
+      <li>Sir Roy Canseco</li>
+    </ul>
+    <p>For being the best CS teacher ever &#128512</p>
   </footer>
 
   
